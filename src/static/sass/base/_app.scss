@@ -1,0 +1,95 @@
+// Todos los estilos, porque hay pocos, sino ya dividiria mas
+
+body{
+    background: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+app-root{
+    display: block;
+    height: 100%;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+nav{
+    ul{ display: flex }
+    li{
+        background: #3e3e3e;
+        box-shadow: inset 0 -3px 0 #3e3e3e;
+        color: white;
+        flex: 50%;
+        padding: $padding $padding - 5;
+        transition: box-shadow .5s;
+    }
+    li:first-child{
+        border-right: 1px solid black;
+    }
+    li:hover{
+        box-shadow: inset 0 -3px 0 #7e7e7e;
+    }
+    li.activo{
+        box-shadow: inset 0 -3px 0  #8e8e8e;
+    }
+}
+
+section#cajas{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
+    .personas,
+    .preguntas{
+        padding: $padding/2;
+        li{
+            background: white;
+            border-bottom: 1px solid lightgrey;
+            box-shadow: 0 2px 10px rgba(0,0,0, .05);
+            display: flex;
+            padding: $padding/2 $padding/2+2;
+        }
+        li:last-child{
+            border-bottom: none;
+        }
+        li.alerta{
+            border-left: 3px solid #EF6C00;
+        }
+        li p{
+            flex-grow: 1;
+            padding-right: $padding/2;
+        }
+        li .eliminar{
+            align-items: center;
+            display: flex;
+        }
+    }
+}
+
+form{
+    border-top: 1px solid lightgrey;
+    display: flex;
+    input,
+    button{
+        box-sizing: border-box;
+    }
+    input{
+        background: white;
+        flex-grow: 2;
+        padding: $padding;
+    }
+    button{
+        display: flex;
+        background: #43A047;
+        padding: $padding/2
+    }
+}
+
+button.boton-grande{
+    background: #3737B7;
+    color: white;
+    padding: 25px;
+}

@@ -1,0 +1,46 @@
+// Seccion con la respuesta al hazar
+
+section#respuesta_randomizador
+{
+    
+    // Capa de fondo
+    background: rgba(0,0,0,.9);
+    position: fixed;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
+
+    // Fuente
+    color: white;
+    font-size: 22px;
+    font-weight: bolder;
+    text-align: center;
+
+    .pensando,
+    .respuesta{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: inherit;
+    }
+
+    // Gif pensando y texto
+    .pensando{
+        p{ margin-bottom: $padding; }
+        img{ width: 100%; }
+    }
+
+    // Texto con la respuesta y boton para cerrar
+    .respuesta{
+        p{ margin-bottom: $padding*2; }
+        p.nombre{ font-size: 35px; }
+        button.cerrar{
+            background: whitesmoke;
+            border-radius: 3px;
+            padding: 10px;
+            width: 80%;
+            margin: 0 auto;
+        }
+    }
+
+}

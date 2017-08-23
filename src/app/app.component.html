@@ -1,20 +1,91 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
-  </li>
-</ul>
+<main>
+    <!-- Mini nav para seleccionar entre la ventana de usuarios y texts -->
+    <nav>
+        <ul>
+            <li (click)="ventana=true" [ngClass]="ventana?'activo':''">Personas</li>
+            <li (click)="ventana=false" [ngClass]="ventana?'':'activo'">Preguntas</li>
+        </ul>
+    </nav>
 
+    <!-- Caja que contiene personas o preguntas, dependiendo de lo seleccionado -->
+    <section id="cajas">
+        <div class="personas" *ngIf="ventana">
+            <ul>
+                <li class="alerta" *ngIf="personas.length === 0">
+                    No hay personas
+                </li>
+                <li *ngFor="let persona of personas" [@slideInOut]>
+                    <p>{{persona}}</p>
+                    <div (click)="borrar(persona)" class="eliminar">
+                        <svg fill="#3e3e3e" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                        </svg>
+                    </div> 
+                </li>
+            </ul>
+        </div>
+        <div class="preguntas" *ngIf="!ventana">
+            <ul>
+                <li class="alerta" *ngIf="preguntas.length === 0">
+                    No hay preguntas
+                </li>
+                <li *ngFor="let pregunta of preguntas" [@slideInOut]>
+                    <p>{{pregunta}}</p>
+                    <div (click)="borrar(pregunta)" class="eliminar">
+                        <svg fill="#3e3e3e" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                        </svg>
+                    </div> 
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Formulario para anyadir personas o preguntas, dependiendo de lo seleccionado  -->
+    <form (ngSubmit)="f.valid ? onFormSubmit(f): undefined" #f="ngForm">
+        <input
+            autocomplete="off"
+            spellcheck="false"
+            name="userInput"
+            ngModel
+            type="text"
+            [placeholder]="ventana ? 'Carlos' : 'Nueva pregunta'">
+        <button class="boton-plano" type="submit">
+            <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                <path d="M0 0h24v24H0z" fill="none"/>
+            </svg>
+        </button>
+    </form>
+
+    <!-- Gran boton para randomizar -->
+    <button
+        (click)="randomizar()"
+        class="boton-grande">
+        ¡Randomizar!
+    </button>
+</main>
+
+<!-- Cuando le demos a randomizar mostrara esta seccion -->
+<section id="respuesta_randomizador" *ngIf="hayRespuesta || pensandoRespuesta" [@fadeInOut]>
+    <!-- Hacemos como que pensamos la respuesta -->
+    <div class="pensando" *ngIf="pensandoRespuesta" [@fadeInOut]>
+        <div class="center">
+            <p>Déjame pensar...</p>
+            <img src="static/img/resacon.gif" alt="pensando">
+            <div class="spin"></div>
+        </div>
+    </div>
+    <!-- El texto de la respuesta -->
+    <div class="respuesta" *ngIf="hayRespuesta" [@fadeInOut]>
+        <div class="center">
+            <p class="nombre">{{persona}}</p>
+            <p class="pregunta">{{pregunta}}</p>
+            <button class="cerrar" (click)="cerrarRespuesta()">
+                Cerrar
+            </button>              
+        </div>
+    </div>
+</section>
