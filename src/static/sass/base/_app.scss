@@ -41,7 +41,8 @@ nav{
 section#cajas{
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 100%;
+    // Altura == 100% de la pantalla menos la altura del navegador y el formulario
+    height: calc(100% - 118px - 63px);
     .personas,
     .preguntas{
         padding: $padding/2;
@@ -69,6 +70,14 @@ section#cajas{
     }
 }
 
+section#bottom{
+    bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+}
+
 form{
     border-top: 1px solid lightgrey;
     display: flex;
@@ -78,13 +87,16 @@ form{
     }
     input{
         background: white;
-        flex-grow: 2;
-        padding: $padding;
+        flex-grow: 1;
+        padding: $padding/2;
+        min-width: 0px; // Fix para flexbox
     }
     button{
         display: flex;
         background: #43A047;
-        padding: $padding/2
+        flex: 20%;
+        padding: $padding/2;
+        justify-content: center;
     }
 }
 

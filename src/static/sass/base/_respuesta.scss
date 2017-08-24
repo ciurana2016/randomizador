@@ -32,7 +32,10 @@ section#respuesta_randomizador
 
     // Texto con la respuesta y boton para cerrar
     .respuesta{
-        p{ margin-bottom: $padding*2; }
+        p{
+            margin-bottom: $padding*2;
+            padding: 0 $padding/2;
+        }
         p.nombre{ font-size: 35px; }
         button.cerrar{
             background: whitesmoke;

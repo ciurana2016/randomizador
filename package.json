@@ -8,7 +8,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "precache": "sw-precache --verbose --config=sw-precache-config.js",
+    "static-serve": "cd dist && live-server --port=4300 --host=localhost --entry-file=/index.html"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +24,9 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "core-js": "^2.4.1",
+    "ionic-angular": "^3.6.0",
+    "ionicons": "^3.0.0",
+    "live-server": "^1.2.0",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },
@@ -42,6 +47,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
+    "sw-precache": "^5.2.0",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
     "typescript": "~2.3.3"
