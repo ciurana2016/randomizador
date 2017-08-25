@@ -1,4 +1,7 @@
 # RandomizadorApp
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4b9cb3b564104a0da2273eb7a95ede30)](https://www.codacy.com/app/ciurana2016/randomizador?utm_source=github.com&utm_medium=referral&utm_content=ciurana2016/randomizador&utm_campaign=badger)
+
 Una app muy simple
 
 ## Compilar angular
